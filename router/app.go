@@ -19,5 +19,6 @@ func App() *gin.Engine {
 	r.GET("/role/detail/:id", service.GetRoleDetail)
 	r.PUT("/role", service.UpdateRole)
 	r.DELETE("/role/:id", service.DeleteRole)
+	r.GET("/menu", service.GetMenuList)
 	return r
 }

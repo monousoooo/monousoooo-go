@@ -74,3 +74,24 @@ type UpdateRoleRequest struct {
 	ID uint `json:"id"`
 	AddRoleRequest
 }
+
+type MenuReply struct {
+	ID            uint         `json:"id"`
+	ParentId      uint         `json:"parent_id"`
+	Name          string       `json:"name"`
+	Path          string       `json:"path"`
+	Icon          string       `json:"icon"`
+	Sort          int          `json:"sort"`
+	ComponentName string       `json:"component_name"`
+	SubMenus      []*MenuReply `json:"sub_menus"`
+}
+
+type AllMenu struct {
+	ID            uint   `json:"id"`
+	ParentId      uint   `json:"parent_id"`
+	Name          string `json:"name"`
+	Path          string `json:"path"`
+	Icon          string `json:"icon"`
+	Sort          int    `json:"sort"`
+	ComponentName string `json:"component_name"`
+}
