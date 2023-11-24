@@ -13,5 +13,6 @@ func App() *gin.Engine {
 	r.GET("/user", service.GetUserList)
 	r.POST("/user", service.AddUser)
 	r.PUT("/user", service.UpdateUser)
+	r.DELETE("/user", service.DeleteUser)
 	return r
 }
