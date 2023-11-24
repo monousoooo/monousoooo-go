@@ -17,6 +17,6 @@ func NewGormDB() {
 		panic(err)
 	}
 	// 自动建表
-	err = db.AutoMigrate(&SysUser{})
+	err = db.AutoMigrate(&SysUser{}, &SysRole{})
 	DB = db
 }
