@@ -13,3 +13,18 @@ type SysRole struct {
 func (table *SysRole) TableName() string {
 	return "sys_role"
 }
+
+func GetRoleList(keyword string) *gorm.DB {
+	tx := DB.Model(new(SysRole)).Select("id,name,is_admin,sort,remarks,created_at,updated_at")
+	if keyword != "" {
+		tx.Where("name LIKE ?", "%"+keyword+"%")
+	}
+	tx.Order("sort ASC")
+	return tx
+}
+
+func GetRoleDetail(id uint) (*SysRole, error) {
+	data := new(SysRole)
+	err := DB.Model(new(SysRole)).Where("id = ?", id).First(data).Error
+	return data, err
+}

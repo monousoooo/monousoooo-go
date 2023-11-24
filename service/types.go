@@ -44,3 +44,33 @@ type UpdateUserRequest struct {
 	ID uint `json:"id"`
 	AddUserRequest
 }
+
+type GetRoleListRequest struct {
+	*QueryRequest
+}
+
+type GetRoleListReply struct {
+	ID        uint   `json:"id"`
+	Name      string `json:"name"`
+	Sort      int    `json:"sort"`
+	IsAdmin   int    `json:"is_admin"`
+	CreatedAt string `json:"created_at"`
+	UpdatedAt string `json:"updated_at"`
+}
+
+type AddRoleRequest struct {
+	Name    string `json:"name"`
+	Sort    int64  `json:"sort"`
+	IsAdmin int8   `json:"is_admin"`
+	Remarks string `json:"remarks"`
+}
+
+type GetRoleDetailReply struct {
+	ID uint `json:"id"`
+	AddRoleRequest
+}
+
+type UpdateRoleRequest struct {
+	ID uint `json:"id"`
+	AddRoleRequest
+}
